@@ -29,7 +29,7 @@ public class Empresa {
 	
 	public Chofer registrarChofer(String choferId, String nombre, float honorariosXViaje) {
 		Chofer chofer = null;
-		int indexVacio = this.buscarEspacioNullChoferes(this.choferes);
+		int indexVacio = buscarEspacioNullChoferes(this.choferes);
 		if(indexVacio != -1) {
 			chofer = new Chofer(choferId, nombre, honorariosXViaje);
 			this.choferes[indexVacio] = chofer;
@@ -38,7 +38,7 @@ public class Empresa {
 	}
 	public Vehiculo registrarVehiculo(int camionId, float gastoPorKm) {
 		Vehiculo vehiculo = null;
-		int indexVacio = this.buscarEspacioNullVehiculos(this.vehiculos);
+		int indexVacio = buscarEspacioNullVehiculos(this.vehiculos);
 		if(indexVacio != -1) {
 			if(camionId < NRO_MAXIMO_VEHICULOS) {
 				vehiculo = new Vehiculo(camionId, gastoPorKm);
@@ -54,7 +54,7 @@ public class Empresa {
 	
 	public Viaje registrarViaje(int camionId, String choferId, float kmsPorViaje) {
 		Viaje viaje = null;
-		int indexVacio = this.buscarEspacioNullViajes(this.viajes);
+		int indexVacio = buscarEspacioNullViajes(this.viajes);
 		if(indexVacio != -1) {
 			viaje = new Viaje(camionId, choferId, kmsPorViaje);
 			this.viajes[indexVacio] = viaje;
@@ -106,8 +106,8 @@ public class Empresa {
 	
 	public void informarCostoViaje() {
 		Viaje[] viajes;
-		int camionId = -1;
-		int choferId = -1 ;
+		//int camionId = -1;
+		//int choferId = -1 ;
 		float kmViaje = -1;
 		float gastoPorKm = 0;
 		int indexVehiculo = -1;
@@ -116,12 +116,11 @@ public class Empresa {
 		float consumoCamion = 0;
 		int[] indexes = new int[2];
 		
-		viajes = this.getViajes();
+		viajes = getViajes();
 		for (int i = 0; i < viajes.length; i++) {
-			indexes = this.devolverIndexChoferYCamion(viajes[i]);
+			indexes = devolverIndexChoferYCamion(viajes[i]);
 			indexChofer = indexes[0];
 			indexVehiculo = indexes[1];
-			//System.out.println(indexChofer + " " + indexVehiculo);
 			if(viajes[i] != null) {
 				kmViaje = viajes[i].getKmsPorViaje();
 				if(indexChofer != -1 && indexVehiculo != -1 ) {
@@ -147,7 +146,7 @@ public class Empresa {
 		
 		
 		for (int i = 0; i < this.viajes.length; i++) {
-			indexes = this.devolverIndexChoferYCamion(viajes[i]);
+			indexes = devolverIndexChoferYCamion(viajes[i]);
 			int indexChofer = indexes[0];
 			int indexCamion = indexes[1];
 			if(indexChofer != -1 && indexCamion != -1) {
@@ -155,7 +154,7 @@ public class Empresa {
 			}
 		}
 		for (int i = 0; i < vector.length; i++) {
-			chofer = this.devolverChofer(i);
+			chofer = devolverChofer(i);
 			if(chofer != null) {
 				for (int x = 0; x < vector[i].length; x++) {
 					vehiculo = devolverVehiculo(x);
@@ -196,8 +195,8 @@ public class Empresa {
 			camionId = viaje.getCamionId();
 			choferId = viaje.getChoferId();
 			if(camionId != -1 && choferId != null) {
-				indexVehiculo = this.devolverIndexVehiculo(camionId);
-				indexChofer = this.devolverIndexChofer(choferId);
+				indexVehiculo = devolverIndexVehiculo(camionId);
+				indexChofer = devolverIndexChofer(choferId);
 				if(indexVehiculo != -1 && indexChofer != -1) {
 					resultado[0] = indexChofer;
 					resultado[1] = indexVehiculo;
