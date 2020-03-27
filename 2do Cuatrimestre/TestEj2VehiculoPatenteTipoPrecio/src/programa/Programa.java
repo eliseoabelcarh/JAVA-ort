@@ -12,6 +12,13 @@ public class Programa {
 		test.agregarVehiculo("JH54HG",3, 70000);
 		
 		test.informarPrecioConImpuestos("JH54HG");
+	
+		
+		
+		
+		
+		
+		
 		
 	}
 

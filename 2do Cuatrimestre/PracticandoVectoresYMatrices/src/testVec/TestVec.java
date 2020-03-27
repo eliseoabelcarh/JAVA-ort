@@ -87,6 +87,7 @@ public class TestVec {
 		int cantidadQueSeRepiteMayor = devolverCantidadVecesRepiteNro(nroMayor, vector);
 		return cantidadQueSeRepiteMayor;
 	}
+	
 	public boolean elPromedioExisteEnVector() {
 		boolean existe = false;
 		int[] vector = this.vec;
@@ -96,7 +97,6 @@ public class TestVec {
 				existe = existeNroEnVector(promedio, vector);
 			}
 		}
-		
 		return existe;
 	}
 	private int[] crearArrayConNroInicialYNroFinal(int nroInicial, int nroFinal) {
