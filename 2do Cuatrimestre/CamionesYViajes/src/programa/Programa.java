@@ -31,9 +31,14 @@ public class Programa {
 		Viaje viaje7 = empresa.registrarViaje(3, "chofID002", 210f);
 		Viaje viaje8 = empresa.registrarViaje(4, "chofID004", 120f);
 		
+		
+		//estos 2 primeros métodos tienen version2 con mejoras
 		empresa.informarCostoViaje();
 		empresa.informarViajesXChoferCamion();
 
+		//con mejoras
+		empresa.informarCostoViaje2();
+		empresa.informarViajesXChoferCamion2();
 		
 		
 	}

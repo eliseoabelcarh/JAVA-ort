@@ -9,11 +9,12 @@ public class Empresa {
 	private Vehiculo [] vehiculos;
 	private Viaje[] viajes;
 	private final int NRO_MAXIMO_VEHICULOS = 10;
+	private final int NRO_MAXIMO_CHOFERES = 20;
 	
 	public Empresa() {
-		this.choferes = new Chofer[20];
-		this.vehiculos = new Vehiculo[10];
-		this.viajes = new Viaje[15];// a modo de ejercicio se coloca número finito. debería ser infinito
+		this.choferes = new Chofer[NRO_MAXIMO_CHOFERES];
+		this.vehiculos = new Vehiculo[NRO_MAXIMO_VEHICULOS];
+		this.viajes = new Viaje[15];// a modo de ejercicio se utiliza vector, deberpia ser arrayList
 	}
 	
 		
@@ -104,10 +105,9 @@ public class Empresa {
 		return indexVacio;
 	}
 	
+	//este método tiene version2 con mejoras
 	public void informarCostoViaje() {
 		Viaje[] viajes;
-		//int camionId = -1;
-		//int choferId = -1 ;
 		float kmViaje = -1;
 		float gastoPorKm = 0;
 		int indexVehiculo = -1;
@@ -127,8 +127,8 @@ public class Empresa {
 					gastoPorKm = this.vehiculos[indexVehiculo].getGastoPorKm();
 					honorariosXViaje = this.choferes[indexChofer].getHonorariosXViaje();
 					consumoCamion = gastoPorKm*kmViaje;
-					//System.out.println("para el viaje " + (i+1) + " se gastó " + honorariosXViaje + " en chofer y " + consumoCamion  + " en consumo del camión");
-					System.out.println("para el viaje " + (i+1) + " se gastó " + honorariosXViaje + " en chofer - gastoPorKm: " + gastoPorKm  + " y viaje tuvo:" + kmViaje + "kms ");
+					System.out.println("para el viaje " + (i+1) + " se gastó " + honorariosXViaje + " en chofer y " + consumoCamion  + " en consumo del camión");
+					//System.out.println("para el viaje " + (i+1) + " se gastó " + honorariosXViaje + " en chofer - gastoPorKm: " + gastoPorKm  + " y viaje tuvo:" + kmViaje + "kms ");
 
 				}else {System.out.println("no existe vehiculo o chofer");}
 			}
@@ -136,6 +136,7 @@ public class Empresa {
 		}
 	}
 	
+	//este método tiene version2 con mejoras
 	public void informarViajesXChoferCamion() {
 		int[][]vector = new int [20][10];
 		int[] indexes = new int[2];
@@ -175,7 +176,15 @@ public class Empresa {
 		}
 		return chofer;
 	}
-	
+	public Chofer devolverChofer( String choferId) {
+		Chofer chofer = null;
+		int indexChofer = devolverIndexChofer(choferId);
+		if(indexChofer != -1) {
+			chofer = devolverChofer(indexChofer);
+		}
+		return chofer;
+	}
+
 	public Vehiculo devolverVehiculo( int index) {
 		Vehiculo vehiculo = null;
 		if(index != -1) {
@@ -237,8 +246,55 @@ public class Empresa {
 		return index;
 	}
 	
+	//****************************** MÉTODOS MÁS PROLIJOS QUE REMPLAZAN ARRIBA *************************
 	
+	public void informarCostoViaje2() {
+		Chofer chofer;
+		Vehiculo camion;
+		for (int i = 0; i < this.viajes.length; i++) {
+			if(viajes[i] != null) {		
+				chofer = devolverChofer(viajes[i].getChoferId());
+				camion = devolverVehiculo(viajes[i].getCamionId());
+				if(chofer != null && camion  != null) {
+					System.out.println("viaje costó " + ((chofer.getHonorariosXViaje()) + (camion.getGastoPorKm()*viajes[i].getKmsPorViaje())));
+				}
+			}
+		}
+	}
 	
-	
+	private int[][] contarViajesXChoferCamion(){
+		int[][]matriz = new int[NRO_MAXIMO_CHOFERES][NRO_MAXIMO_VEHICULOS];
+		for (int i = 0; i < this.viajes.length; i++) {
+			if(viajes[i] != null) {
+				int indexChofer =  devolverIndexChofer(viajes[i].getChoferId());
+				int indexCamion = devolverIndexVehiculo(viajes[i].getCamionId());
+				if(indexChofer != -1 && indexCamion != -1) {
+					matriz[indexChofer][indexCamion]++;
+				}
+				
+			}
+		}
+		return matriz;	
+	}
+	public void informarViajesXChoferCamion2() {
+		int[][] matriz = contarViajesXChoferCamion();
+		for (int i = 0; i < matriz.length; i++) {
+			Chofer chofer = devolverChofer(i);
+					if(chofer != null) {
+						String choferId = chofer.getChoferId();
+						for (int x = 0; x < matriz[i].length; x++) {
+							Vehiculo camion = devolverVehiculo(x);
+							if(camion != null) {
+								int camionId  = camion.getCamionId();
+								System.out.println("para chofer " + choferId + " con el camion "+ camionId +" se realizaron " + matriz[i][x] + " viajes");
+
+							}
+					}
+					
+			
+						
+			}
+		}
+	}
 
 }
