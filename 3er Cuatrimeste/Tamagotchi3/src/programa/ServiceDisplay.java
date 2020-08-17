@@ -20,7 +20,7 @@ public class ServiceDisplay {
 		return instancia;
 	}
 	
-	public IDisplay getDefault() {
+	private IDisplay getDefault() {
 		return this.idisplays.get(0);
 	}
 	

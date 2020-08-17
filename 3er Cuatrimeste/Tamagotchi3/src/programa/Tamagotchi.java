@@ -15,9 +15,12 @@ public class Tamagotchi {
 		
 	}
 		
-	public void interactuar(IAction iaction) {
+	public void execute(IAction iaction) {
+		
 		IRespuesta irespuesta = this.iHandleActionsAndEstados.handleAction(this.iestadoActual, iaction);
-		this.serviceDisplay.mostrar(irespuesta.getValor());
+		this.serviceDisplay.mostrar("Estado Random: " + this.iestadoActual.getValor());
+		this.serviceDisplay.mostrar("Acción Random: " + iaction.getValor());
+		this.serviceDisplay.mostrar("Respuesta ante acción: " + irespuesta.getValor());
 	}
 
 	
