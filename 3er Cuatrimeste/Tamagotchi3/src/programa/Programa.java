@@ -4,9 +4,16 @@ public class Programa {
 	
 	public static void main(String[] args) {
 		
-		Tamagotchi t  = new Tamagotchi(Triste.getInstancia());
+		ServiceDisplay serviceDisplay = ServiceDisplay.getInstancia();
+		
+		//la clase ServiceHandleActionAndEstado tiene la lógica de como responder ante ciertos actions propios de tamagotchi
+		IHandleActionsAndEstados iHandleActionsAndEstados = new ServiceHandleActionAndEstado();
+		
+		Tamagotchi t  = new Tamagotchi(iHandleActionsAndEstados, serviceDisplay);
 	
-		t.interactuar(Mimo.getInstancia());
+		IAction iaction = Mimo.getInstancia(); // la iaction la genera el usuario desde un botón o joystick ejemplo
+		
+		t.interactuar(iaction);
 		
 		
 	}

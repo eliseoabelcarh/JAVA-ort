@@ -1,7 +1,7 @@
 package programa;
 
 
-public class Mimo implements IAccion{
+public class Mimo implements IAction{
 
 	public static Mimo instancia;
 		
@@ -9,7 +9,7 @@ public class Mimo implements IAccion{
 	public Mimo() {
 	}
 
-	public static IAccion getInstancia() {
+	public static IAction getInstancia() {
 			if(instancia == null) {
 				instancia = new Mimo();
 			}

@@ -42,4 +42,6 @@ public enum Respuesta {
 		}
 		return array;
 	}
+
+	
 }

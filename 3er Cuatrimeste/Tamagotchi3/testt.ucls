@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.4" icons="true" automaticImage="PNG" always-add-relationships="true" generalizations="true" 
   realizations="true" associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="programa.Triste" project="Tamagotchi3" 
-    file="/Tamagotchi3/src/programa/Triste.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="programa.TristeEstado" project="Tamagotchi3" 
+    file="/Tamagotchi3/src/programa/TristeEstado.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="389" y="224"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -28,8 +28,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="4" language="java" name="programa.IAccion" project="Tamagotchi3" 
-    file="/Tamagotchi3/src/programa/IAccion.java" binary="false" corner="BOTTOM_RIGHT">    
+  <interface id="4" language="java" name="programa.IAction" project="Tamagotchi3" 
+    file="/Tamagotchi3/src/programa/IAction.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="641" y="364"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -109,124 +109,160 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <association id="13">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="14" name="instancia"/>      
-      <multiplicity id="15" minimum="0" maximum="1"/>    
+  <dependency id="13">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <association id="14">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="15" name="instancia">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="16" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="16">    
+  <association id="17">    
     <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="17" name="instancia"/>      
-      <multiplicity id="18" minimum="0" maximum="1"/>    
+      <attribute id="18" name="idisplays">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="19" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
+    <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="19">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="20" name="irespuestas"/>      
-      <multiplicity id="21" minimum="0" maximum="2147483647"/>    
+  <association id="20">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="21" name="instancia">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="22" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="22">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="12"/>  
-  </realization>  
   <association id="23">    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="24" name="iestadoActual"/>      
-      <multiplicity id="25" minimum="0" maximum="1"/>    
+      <attribute id="24" name="iestadoActual">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="25" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="26">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="27" name="instancia"/>      
-      <multiplicity id="28" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="29">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="30" name="instancia"/>      
-      <multiplicity id="31" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="32">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="12"/>  
-  </realization>  
-  <realization id="33">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="7"/>  
-  </realization>  
-  <association id="34">    
     <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="35" name="idisplays"/>      
-      <multiplicity id="36" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="37">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="38" name="irespuestas"/>      
-      <multiplicity id="39" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="40">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="4"/>  
-  </realization>  
-  <association id="41">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="42" name="serviceDisplay"/>      
-      <multiplicity id="43" minimum="0" maximum="1"/>    
+      <attribute id="27" name="instancia">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="28" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="44">    
+  <dependency id="29">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <realization id="30">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <realization id="31">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="7"/>  
+  </realization>  
+  <realization id="32">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="7"/>  
+  </realization>  
+  <realization id="33">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </realization>  
+  <realization id="34">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="12"/>  
+  </realization>  
+  <association id="35">    
     <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="45" name="instancia"/>      
-      <multiplicity id="46" minimum="0" maximum="1"/>    
+      <attribute id="36" name="instancia">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="37" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="47">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="6"/>  
-  </realization>  
-  <association id="48">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="49" name="instancia"/>      
-      <multiplicity id="50" minimum="0" maximum="1"/>    
+  <association id="38">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="39" name="instancia">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="40" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="51">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="7"/>  
-  </realization>  
-  <association id="52">    
+  <association id="41">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="42" name="instancia">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="43" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="44">    
     <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="53" name="instancia"/>      
-      <multiplicity id="54" minimum="0" maximum="1"/>    
+      <attribute id="45" name="instancia">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="46" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="47">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="12"/>  
+  </realization>  
+  <dependency id="48">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <association id="49">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="50" name="serviceDisplay">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="51" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 

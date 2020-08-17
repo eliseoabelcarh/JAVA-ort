@@ -2,17 +2,23 @@ package programa;
 
 public class Tamagotchi {
 	
-	public ServiceDisplay serviceDisplay;
+	public IHandleActionsAndEstados iHandleActionsAndEstados;
 	public IEstado iestadoActual;
+	public ServiceDisplay serviceDisplay;
 
-	public Tamagotchi(IEstado iestado) {
-		this.iestadoActual = iestado;//esto debería buscarse en algún servicio, cambiar
-		this.serviceDisplay = ServiceDisplay.getInstancia();
+	
+	public Tamagotchi( IHandleActionsAndEstados iHandleActionsAndEstados, ServiceDisplay serviceDisplay) {
+		
+		this.iHandleActionsAndEstados = iHandleActionsAndEstados;
+		this.iestadoActual = iHandleActionsAndEstados.getRandomEstado();
+		this.serviceDisplay = serviceDisplay;
+		
 	}
 		
-	public void interactuar(IAccion iaccion) {
-		IRespuesta irespuesta = this.iestadoActual.responder(iaccion);
+	public void interactuar(IAction iaction) {
+		IRespuesta irespuesta = this.iHandleActionsAndEstados.handleAction(this.iestadoActual, iaction);
 		this.serviceDisplay.mostrar(irespuesta.getValor());
 	}
 
+	
 }
