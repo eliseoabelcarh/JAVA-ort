@@ -19,7 +19,7 @@ public class Programa {
 		IHandleActionsAndEstados iHandleActionsAndEstados = new ServiceHandleActionAndEstado(irespuestas, iactions, iestados);
 		
 		//El juego recibe como params la lógica del juego y un servicio Display que mostrará mensajes
-		Tamagotchi tamagot  = new Tamagotchi(iHandleActionsAndEstados, serviceDisplay);
+		IJuego tamagot  = new Tamagotchi(iHandleActionsAndEstados, serviceDisplay);
 	
 		// la iaction la genera el usuario desde un botón o joystick por ejemplo
 		IAction iaction = iHandleActionsAndEstados.getRandomAction(); 

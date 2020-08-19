@@ -1,6 +1,6 @@
 package programa;
 
-public class Tamagotchi {
+public class Tamagotchi implements IJuego {
 	
 	public IHandleActionsAndEstados iHandleActionsAndEstados;
 	public IEstado iestadoActual;
@@ -15,6 +15,7 @@ public class Tamagotchi {
 		
 	}
 		
+	@Override
 	public void execute(IAction iaction) {
 		
 		IRespuesta irespuesta = this.iHandleActionsAndEstados.handleAction(this.iestadoActual, iaction);
